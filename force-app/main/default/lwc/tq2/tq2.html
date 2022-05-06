@@ -1,12 +1,20 @@
+<!-- sldsValidatorIgnore -->
 <template>
-    <lightning-datatable
-            key-field="id"
-            columns={columns}
-            data={data}
-            hide-checkbox-column
-            default-sort-direction={defaultSortDirection}
-            sorted-direction={sortDirection}
-            sorted-by={sortedBy}
-            onsort={onHandleSort}>
-    </lightning-datatable>
+    <template if:false={hasItems}>
+        <div class="slds-m-vertical_medium">
+            Loading...
+        </div>
+    </template>
+    <template if:true={hasItems}>
+        <lightning-datatable
+                key-field="id"
+                columns={columns}
+                data={data}
+                hide-checkbox-column
+                default-sort-direction={defaultSortDirection}
+                sorted-direction={sortDirection}
+                sorted-by={sortedBy}
+                onsort={onHandleSort}>
+        </lightning-datatable>
+    </template>
 </template>

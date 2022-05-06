@@ -22,6 +22,7 @@ const columns = [
         sortable: true,
     },
     { label: 'FI', fieldName: 'FI' },
+    { label: 'Other FI', fieldName: 'Other FI'}
 ];
 export default class Tq2 extends LightningElement {
     data = data;
@@ -29,6 +30,7 @@ export default class Tq2 extends LightningElement {
     defaultSortDirection = 'asc';
     sortDirection = 'asc';
     sortedBy;
+    hasItems= false;
 
     // Used to sort the 'Age' column
     sortBy(field, reverse, primer) {
@@ -49,8 +51,8 @@ export default class Tq2 extends LightningElement {
 
     async connectedCallback() {
         const data = await fetchDataHelper({ amountOfRecords: 2 });
+        this.hasItems= data.length > 0;
         this.data= data;
-        console.log('data>>>>' + data);
     }
 
     onHandleSort(event) {
