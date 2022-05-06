@@ -4,6 +4,7 @@ export default class Fee extends LightningElement {
     @track items = [];
     plusNumber= undefined;
     minusNumber= undefined;
+    percentNumber= undefined;
 
     get plusNumberLabel() {
         return this.plusNumber ? `Plus ${this.plusNumber}` : 'Plus';
@@ -11,6 +12,10 @@ export default class Fee extends LightningElement {
 
     get minusNumberLabel() {
         return this.minusNumber ? `Minus ${this.minusNumber}` : 'Minus';
+    }
+
+    get percentNumberLabel() {
+        return this.percentNumber ? `${this.percentNumber} % of transaction amount` : '% of transaction amount';
     }
 
     handleChange(event) {
@@ -22,6 +27,7 @@ export default class Fee extends LightningElement {
             type: 'icon',
             label: event.target.label,
         });
+        this[event.target.name]= undefined;
         console.log('ouch: ' + event.target.label);
     }
 
