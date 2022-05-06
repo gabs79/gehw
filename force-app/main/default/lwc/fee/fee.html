@@ -1,0 +1,54 @@
+<template>
+    
+    <div class="c-container">
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item padding="around-small" size="12">
+                    <div class="page-section page-header">
+                        <h1>Billing Fee</h1>
+                    </div>
+                </lightning-layout-item>
+                
+                <lightning-layout-item padding="around-small" size="12">
+                    <lightning-layout class="slds-grid_vertical-align-end">
+                        <lightning-layout-item padding="around-small" size="3">
+                            <lightning-input type="text" label="% of transaction amount" placeholder="type % number ..."></lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small"  size="3">
+                                <lightning-button label="Add % amount" onclick={handleClick}></lightning-button>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" size="3">
+                            <lightning-button label="(" onclick={handleClick}></lightning-button>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small"  size="3">
+                            <lightning-button label=")" onclick={handleClick}></lightning-button>
+                        </lightning-layout-item>
+
+                    </lightning-layout>
+                </lightning-layout-item>
+
+                <lightning-layout-item padding="around-small" size="12">
+                    <lightning-layout class="slds-grid_vertical-align-end">
+                        <lightning-layout-item padding="around-small" size="3">
+                            <lightning-input name="plusNumber" onchange={handleChange} type="text" value={plusNumber} label="Plus" placeholder="type number ..."></lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small"  size="3">
+                                <lightning-button label={plusNumberLabel} onclick={handleClick}></lightning-button>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small" size="3">
+                            <lightning-input name="minusNumber" onchange={handleChange}  type="text" value={minusNumber} label="Minus" placeholder="type number ..."></lightning-input>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small"  size="3">
+                                <lightning-button label={minusNumberLabel} onclick={handleClick}></lightning-button>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout-item>
+
+                <lightning-layout-item flexibility="auto" padding="around-small" size="12">
+                    <h2>Formula</h2>
+                    <div class="page-footer page-section">
+                        <lightning-pill-container items={items} onitemremove={handleItemRemove}></lightning-pill-container>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+</template>
